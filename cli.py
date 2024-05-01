@@ -31,11 +31,11 @@ def users():
 
 @cli.command()
 @click.argument('id', type=int)
-def user():
+def user(id):
     data = json_manager.read_json()
     user = next((x for x in data if x['id'] == id), None)
     if user is None:
-        print('user does not exit')
+        print('user does not exist')
     else:
         print(f"{user['id']} - {user['name']} - {user['lastname']}")
         
